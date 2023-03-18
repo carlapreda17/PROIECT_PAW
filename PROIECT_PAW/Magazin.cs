@@ -50,7 +50,7 @@ namespace PROIECT_PAW
             this.adresa = "";
             this.nume_magazin = "";
             listaRaioane=new List<Raion>();
-            listaTranzactii = new List<Tranzactii>;
+            listaTranzactii = new List<Tranzactii>();
                
             
         }
