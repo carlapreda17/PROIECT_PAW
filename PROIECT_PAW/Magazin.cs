@@ -97,6 +97,34 @@ namespace PROIECT_PAW
         public void AdaugaTranzactie(Tranzactii tranzactie)
         {
             listaTranzactii.Add(tranzactie);
+           for(int j=0; j<listaRaioane.Count; j++)
+            {
+                var raion=listaRaioane[j];
+                for(int i=0; i<raion.ListaProduse.Count; i++)
+                {
+                    var produs=raion.ListaProduse[i];   
+                    if(tranzactie.Cod== produs.Item1.CodProdus)
+                    {
+                        tranzactie.CalculeazaCostFinal(produs.Item1.Pret);
+                        if(tranzactie.Cantitate_produs< produs.Item2)
+                        {
+                            listaRaioane[j].ListaProduse[i] = new Tuple<Produs, int>(produs.Item1, produs.Item2-tranzactie.Cantitate_produs) ;
+                        }
+                        else if (tranzactie.Cantitate_produs == produs.Item2)
+                        {
+                            //raion.ListaProduse.RemoveAt(i);
+                            listaRaioane[j] -= produs;
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("produs invalid");
+                        }
+
+                        break;
+                    }
+                }
+            }
         }
 
        

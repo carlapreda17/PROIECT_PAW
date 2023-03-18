@@ -21,29 +21,28 @@ namespace PROIECT_PAW
 
             Raion r1=new Raion();
             r1.Nume_raion = "Cicoloata";
-            r1 += p1;
-            r1 += p2;
-            r1 += p3;
+            r1 += new Tuple<Produs,int>(p1,5);
+            r1 += new Tuple<Produs, int>(p2, 6);
+            r1 += new Tuple<Produs, int>(p3, 8);
             Raion r2=new Raion();
             r2.Nume_raion = "Bomboane";
-            r2 += p4;
-            r2 += p5;
+            r2 += new Tuple<Produs, int>(p4, 5); 
+            r2 += new Tuple<Produs, int>(p5, 7); 
 
-            Tranzactii t1 = new Tranzactii("12/02/2022", 2, 122, "ciocolata", "Milka", 4);
-            Tranzactii t2 = new Tranzactii("15/08/2021", 4, 124, "ciocolata", "Heidi", 6);
+            Tranzactii t1 = new Tranzactii("12/02/2022", 2, 122);
+            Tranzactii t2 = new Tranzactii("15/08/2021", 10, 123);
 
             Magazin m1=new Magazin();
             m1.Nume_magazin = "CandyLand";
             m1.Adresa = "Dornei nr2";
             m1.AdaugaRaion(r1);
             m1.AdaugaRaion(r2);
+            Console.WriteLine(m1);
+
             m1.AdaugaTranzactie(t1);
             m1.AdaugaTranzactie(t2);
 
             
-
-           
-
 
             Console.WriteLine(m1);
 

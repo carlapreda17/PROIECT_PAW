@@ -9,12 +9,13 @@ namespace PROIECT_PAW
     public class Raion
     {
         private string nume_raion;
-        private List<Produs> listaProduse;
+        private List<Tuple<Produs,int>> listaProduse; //adaugare produs+cantitate
+
 
         public string Nume_raion { get => nume_raion; set => nume_raion = value; }
         
 
-        public List<Produs> ListaProduse
+        public List<Tuple<Produs, int>> ListaProduse
         {
             get { return listaProduse; }
             set
@@ -33,14 +34,14 @@ namespace PROIECT_PAW
         {
             
             nume_raion = "";
-            listaProduse = new List<Produs>();
+            listaProduse= new List<Tuple<Produs,int>>();
         }
 
-        public Raion(string nume, List<Produs> lista)
+        public Raion(string nume, List<Tuple<Produs, int>> lista)
         {
             this.nume_raion = nume;
-            List<Produs> listaNoua = new List<Produs>();
-            foreach (Produs p in lista)
+            List<Tuple<Produs, int>> listaNoua = new List<Tuple<Produs, int>>();
+            foreach (var p in lista)
                     listaNoua.Add(p);
             listaProduse.AddRange(listaNoua);   //adauga elementele listei noi in listaProduse
 
@@ -49,7 +50,7 @@ namespace PROIECT_PAW
         public override string ToString()
         {
             string rezultat = "Raionul " + nume_raion + " are urmatoarele produse "+ Environment.NewLine;
-            foreach(Produs p in listaProduse)
+            foreach(var p in listaProduse)
             {
                 rezultat=rezultat+ p.ToString()+Environment.NewLine;
             }
@@ -57,17 +58,18 @@ namespace PROIECT_PAW
             return rezultat;
         }
 
-        public static Raion operator +(Raion r, Produs p)
+        public static Raion operator +(Raion r, Tuple<Produs, int> pereche )
         {
 
-            r.listaProduse.Add(p);
+            r.listaProduse.Add(pereche);
             return r;
         }
 
-        public static Raion operator -(Raion r, Produs p)
+        public static Raion operator -(Raion r, Tuple<Produs, int> pereche)
         {
 
-            r.listaProduse.Remove(p);
+
+            r.listaProduse.Remove(pereche);
             return r;
         }
 
