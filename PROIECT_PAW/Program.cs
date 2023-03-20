@@ -29,8 +29,8 @@ namespace PROIECT_PAW
             r2 += new Tuple<Produs, int>(p4, 5); 
             r2 += new Tuple<Produs, int>(p5, 7); 
 
-            Tranzactii t1 = new Tranzactii("12/02/2022", 2, 122);
-            Tranzactii t2 = new Tranzactii("15/08/2021", 10, 123);
+            Tranzactii t1 = new Tranzactii("12/02/2022", 5, 122);
+            Tranzactii t2 = new Tranzactii("15/08/2021", 3, 123);
 
             Magazin m1=new Magazin();
             m1.Nume_magazin = "CandyLand";

@@ -81,6 +81,11 @@ namespace PROIECT_PAW
             {
                 rezultat += r.ToString() + Environment.NewLine;
             }
+            foreach(Tranzactii t in listaTranzactii)
+            {
+                rezultat += t.ToString() + Environment.NewLine;
+
+            }
             return rezultat;
         }
 
@@ -93,7 +98,7 @@ namespace PROIECT_PAW
         {
             listaRaioane.Remove(raion);
         }
-
+        s
         public void AdaugaTranzactie(Tranzactii tranzactie)
         {
             listaTranzactii.Add(tranzactie);
@@ -105,10 +110,11 @@ namespace PROIECT_PAW
                     var produs=raion.ListaProduse[i];   
                     if(tranzactie.Cod== produs.Item1.CodProdus)
                     {
-                        tranzactie.CalculeazaCostFinal(produs.Item1.Pret);
+                       tranzactie.CalculeazaCostFinal(produs.Item1.Pret);
                         if(tranzactie.Cantitate_produs< produs.Item2)
                         {
                             listaRaioane[j].ListaProduse[i] = new Tuple<Produs, int>(produs.Item1, produs.Item2-tranzactie.Cantitate_produs) ;
+                            
                         }
                         else if (tranzactie.Cantitate_produs == produs.Item2)
                         {

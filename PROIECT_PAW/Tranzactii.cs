@@ -49,12 +49,12 @@ namespace PROIECT_PAW
 
         public override string ToString()
         {
-            return base.ToString() + ". A fost achizionat la data de " + data + ", iar cantiatea este: "+cantitate_produs;
+            return  "Produsul cu codul: "+cod+" a fost achizionat la data de " + data + ", iar cantiatea este: "+cantitate_produs;
         }
 
         public void CalculeazaCostFinal(float pret_produs)
         {
-            this.cost_final= pret_produs * cantitate_produs;
+           this.cost_final= pret_produs * cantitate_produs;
         }
 
       
